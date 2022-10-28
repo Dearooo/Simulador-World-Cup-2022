@@ -13,10 +13,16 @@ namespace Simulador_de_Mata_Mata_World_Cup_2022.Models
         public int derrota{get ;set;}
         public int empate{get ;set ;}
 
-        public Time(){
+        public void Cadastro(string n){
+            this.name = n;
+            this.vitoria = 0;
             this.derrota = 0;
             this.empate = 0;
             this.Goals = 0;
+        }
+
+        public void Imprimir(){
+            Console.WriteLine(name + "\t" + vitoria + "\t" + derrota + "\t" + empate + "\t" + Goals);
         }
     }
  
