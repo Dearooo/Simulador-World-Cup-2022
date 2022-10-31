@@ -11,18 +11,16 @@ namespace Simulador_de_Mata_Mata_World_Cup_2022.Models.Operacoes
         public static void Disputa_FG(Time time1, Time time2){   
 
             int t1, t2;
-            try
-            {
-                Console.WriteLine("Gols do " + time1.name + ":");
-                t1 = int.Parse(Console.ReadLine());
+           
+            Console.WriteLine(time1.name + " X " + time2.name);
+            Console.WriteLine("\n");
 
-                Console.WriteLine("Gols do " + time2.name + ":");
-                t2 = int.Parse(Console.ReadLine());
-            }
-            catch (System.Exception)
-            {
-                throw new ArgumentException("Erro");
-            }
+            Console.WriteLine("Gols do " + time1.name + ":");
+            t1 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Gols do " + time2.name + ":");
+            t2 = int.Parse(Console.ReadLine());
+            
             time1.Goals = time1.Goals + t1;
             time2.Goals = time2.Goals + t2;
             
@@ -50,25 +48,55 @@ namespace Simulador_de_Mata_Mata_World_Cup_2022.Models.Operacoes
             Disputa_FG(T[3], T[1]);
         }
 
-        public static void Selecao_quartas(Time[] T){
-            
+        public static Time[] Selecao_quartas(Time[]? T){
+            Time[] finalistas = new Time[2];
+            finalistas[1].Cadastro("Teste1");
+            finalistas[2].Cadastro("Teste2");
+            for (int i = 0; i < 4; i++)
+            {
+                if (T[i].vitoria >= finalistas[0].vitoria)
+                {
+                    if (T[1].vitoria > finalistas[0].vitoria)
+                    {
+                         finalistas[1] = T[i];
+                    }
+                    else{
+                        if (T[i].Goals > finalistas[0].Goals)
+                        {
+                            finalistas[0]=T[i];
+                        }
+                    }
+                }
+
+                if (T[i].vitoria >= finalistas[1].vitoria)
+                {
+                    if (T[i].vitoria == finalistas[1].vitoria)
+                    {
+                        if (T[i].Goals > finalistas[1].Goals)
+                        {
+                            finalistas[1]=T[i];
+                        }
+                    }
+                    else{
+                        finalistas[1]=T[i];
+                    }
+                    
+                }
+            }
+
+            return finalistas;
         }
 
         //Essa função será responsavel para facilitar a montagem das dispustas nas quartas;
         public static Time Disputa_MM(Time time1, Time time2){   
             
             int t1, t2, emp;
-            try
-            {
-                Console.WriteLine("Gols do " + time1.name + ":");
-                t1 = int.Parse(Console.ReadLine());
-                Console.WriteLine("Gols do " + time2.name + ":");
-                t2 = int.Parse(Console.ReadLine());
-            }
-            catch (System.Exception)
-            {
-                throw new ArgumentException("Erro");
-            }
+
+            Console.WriteLine("Gols do " + time1.name + ":");
+            t1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Gols do " + time2.name + ":");
+            t2 = int.Parse(Console.ReadLine());
+            
             time1.Goals = time1.Goals + t1;
             time2.Goals = time2.Goals + t2;
             
