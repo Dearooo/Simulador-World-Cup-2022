@@ -110,15 +110,6 @@ Operacoes.Controle_FG(F);
 Operacoes.Controle_FG(G);
 Operacoes.Controle_FG(H);
 
-Operacoes.Selecao_quartas(A);
-Operacoes.Selecao_quartas(B);
-Operacoes.Selecao_quartas(C);
-Operacoes.Selecao_quartas(D);
-Operacoes.Selecao_quartas(E);
-Operacoes.Selecao_quartas(F);
-Operacoes.Selecao_quartas(G);
-Operacoes.Selecao_quartas(H);
-
 A = Operacoes.Selecao_quartas(A);
 B = Operacoes.Selecao_quartas(B);
 C = Operacoes.Selecao_quartas(C);
@@ -129,6 +120,9 @@ G = Operacoes.Selecao_quartas(G);
 H = Operacoes.Selecao_quartas(H);
 
 Time[] Time_Oitavas = new Time[8];
+
+Console.Clear();
+Console.WriteLine("/t/t OITAVAS DE FINAL");
 
 Time_Oitavas[0] = Operacoes.Disputa_MM(A[0], B[1]);
 Time_Oitavas[1] = Operacoes.Disputa_MM(C[0], D[1]);
@@ -141,6 +135,9 @@ Time_Oitavas[7] = Operacoes.Disputa_MM(H[0], G[1]);
 
 Time[] Time_Quartas = new Time[4];
 
+Console.Clear();
+Console.WriteLine("/t/t QUARTAS DE FINAL");
+
 Time_Quartas[0] = Operacoes.Disputa_MM(Time_Oitavas[0],Time_Oitavas[1]);
 Time_Quartas[1] = Operacoes.Disputa_MM(Time_Oitavas[4],Time_Oitavas[5]);
 Time_Quartas[2] = Operacoes.Disputa_MM(Time_Oitavas[2],Time_Oitavas[3]);
@@ -148,11 +145,17 @@ Time_Quartas[3] = Operacoes.Disputa_MM(Time_Oitavas[6],Time_Oitavas[7]);
 
 Time[] Semifinais = new Time[2];
 
+Console.Clear();
+Console.WriteLine("/t/t SEMIFINAIS");
+
 Semifinais[0] = Operacoes.Disputa_MM(Time_Quartas[0], Time_Quartas[1]);
 Semifinais[0] = Operacoes.Disputa_MM(Time_Quartas[2], Time_Quartas[3]);
 
 Time Campeao = new Time("CAmpeao");
 
+Console.Clear();
+
+Console.WriteLine("/t/t FINAL");
 Campeao = Operacoes.Disputa_MM(Semifinais[0], Semifinais[1]);
 
-Console.WriteLine("\t\tCongratulations!!!!!\n" + "\t\tO Campeão foi " + Campeao);
+Console.WriteLine("\t\tCongratulations!!!!!\n" + "\t\tO Campeão foi " + Campeao.name);

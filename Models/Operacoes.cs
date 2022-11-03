@@ -13,7 +13,6 @@ namespace Simulador_de_Mata_Mata_World_Cup_2022.Models.Operacoes
             int t1, t2;
            
             Console.WriteLine(time1.name + " X " + time2.name);
-            Console.WriteLine("\n");
 
             Console.WriteLine("Gols do " + time1.name + ":");
             t1 = int.Parse(Console.ReadLine());
@@ -46,19 +45,21 @@ namespace Simulador_de_Mata_Mata_World_Cup_2022.Models.Operacoes
             Disputa_FG(T[3], T[0]);
             Disputa_FG(T[0], T[2]);
             Disputa_FG(T[3], T[1]);
+            Console.Clear();
         }
 
-        public static Time[] Selecao_quartas(Time[]? T){
+        public static Time[] Selecao_quartas(Time[] T){
+            Time Exemp = new Time("kaka");
             Time[] finalistas = new Time[2];
-            finalistas[1].Cadastro("Teste1");
-            finalistas[2].Cadastro("Teste2");
+            finalistas[0] = Exemp.Cadastro("Teste1");
+            finalistas[1] = Exemp.Cadastro("Teste2");
             for (int i = 0; i < 4; i++)
             {
                 if (T[i].vitoria >= finalistas[0].vitoria)
                 {
                     if (T[1].vitoria > finalistas[0].vitoria)
                     {
-                         finalistas[1] = T[i];
+                         finalistas[0] = T[i];
                     }
                     else{
                         if (T[i].Goals > finalistas[0].Goals)
@@ -91,6 +92,8 @@ namespace Simulador_de_Mata_Mata_World_Cup_2022.Models.Operacoes
         public static Time Disputa_MM(Time time1, Time time2){   
             
             int t1, t2, emp;
+
+            Console.WriteLine(time1.name + " X " + time2.name);
 
             Console.WriteLine("Gols do " + time1.name + ":");
             t1 = int.Parse(Console.ReadLine());
